@@ -1,0 +1,369 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+// Переменные для блока
+$minWidth: 320px;
+$maxWidth: 1280px;
+$maxWidthCon: 1280px;
+$md1: $maxWidthCon;
+$md2: 991.98px;
+$md3: 767.98px;
+$md4: 479.98px;
+
+// Переменные для Цвета
+$black: #212121;
+$white: #ffffff;
+$main: #1c4ea4;
+$grey: #aeaeae;
+$footer: #03313b;
+$orange: #ffb202;
+
+// Основная сетка
+._container {
+  max-width: $maxWidthCon;
+  margin: 0 auto;
+  padding: 0px 20px;
+
+  @media (max-width: $md1) {
+    max-width: 970px;
+  }
+  @media (max-width: $md2) {
+    max-width: 750px;
+  }
+  @media (max-width: $md3) {
+    max-width: none;
+    padding: 0 10px;
+  }
+}
+body {
+  margin: 0;
+}
+.page {
+  font-family: "Montserrat", sans-serif;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 110vh;
+}
+html {
+  font-size: 62.5%;
+}
+
+body {
+  & {
+    --hovered-color: #4d4d4d;
+    --hovered-background: #ebebeb;
+
+    padding: 2rem 4rem;
+    margin: 0;
+    color: #050505;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+
+    @media (max-width: 425px) {
+      padding: 1rem;
+    }
+  }
+}
+
+a {
+  &,
+  &:link {
+    color: #000;
+    text-decoration: none;
+    transition: 0.1s linear;
+  }
+
+  &:hover {
+    color: var(--hovered-color);
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  input:focus,
+  button:focus {
+    outline: none;
+  }
+}
+
+// HEADER
+// -----------------------------------
+.header {
+  & {
+    grid-area: header;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 2rem;
+
+    @media (max-width: 375px) {
+      gap: 0.9rem;
+    }
+  }
+
+  &__logo-container {
+    width: 24rem;
+
+    @media (max-width: 1024px) {
+      width: auto;
+    }
+
+    @media (max-width: 768px) {
+      flex: 1;
+    }
+  }
+
+  &__logo {
+    display: inline-block;
+    background: #000;
+    width: 5rem;
+    height: 5rem;
+    border-radius: 3rem;
+  }
+
+  &__links {
+    flex-grow: 1;
+    display: flex;
+    gap: 0.4rem;
+    justify-content: center;
+    align-items: center;
+
+    @media (max-width: 768px) {
+      display: none;
+    }
+  }
+
+  &__link {
+    padding: 30px 5px;
+    box-sizing: border-box;
+    font-size: 16px;
+    border-bottom: 2px solid transparent;
+    @media (max-width: $md2) {
+      padding: 0px;
+      font-size: 13px;
+    }
+
+    &:hover {
+      border-bottom-color: var(--hovered-color);
+    }
+  }
+
+  &__search-container {
+    & {
+      position: relative;
+
+      @media (max-width: 375px) {
+        width: 3.8rem;
+        height: 3.8rem;
+        border-radius: 3.8rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: var(--hovered-background);
+      }
+    }
+
+    & > svg {
+      position: absolute;
+      left: 1.2rem;
+      top: 48%;
+      transform: translateY(-50%);
+
+      @media (max-width: 375px) {
+        position: initial;
+        transform: translate(-1px, -1px);
+      }
+    }
+  }
+
+  &__search-container:hover &__search,
+  &__search-container:focus-within &__search {
+    background: var(--hovered-background);
+  }
+
+  &__search {
+    & {
+      width: 18.4rem;
+      height: 4.4rem;
+      border-radius: 100rem;
+      background: #f5f5f5;
+      border: 0;
+      box-sizing: border-box;
+      padding: 0.4rem 1.4rem 0.4rem 4.6rem;
+      font-size: 1.7rem;
+      transition: 0.1s linear;
+    }
+
+    &::-webkit-input-placeholder {
+      color: #b3b3b3;
+    }
+
+    @media (max-width: 375px) {
+      display: none;
+    }
+  }
+
+  &__user {
+    & {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+    }
+
+    & > a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 3.8rem;
+      height: 3.8rem;
+      border-radius: 3.8rem;
+
+      &:hover {
+        background-color: var(--hovered-background);
+      }
+    }
+  }
+
+  &__login {
+    font-size: 20px;
+    border-radius: 10px;
+    border: none;
+    height: 30px;
+    width: 100%;
+    @media (max-width: $md3) {
+      font-size: 16px;
+    }
+    @media (max-width: $md3) {
+      font-size: 13px;
+    }
+    button a {
+      background-color: transparent;
+      color: orangered;
+      width: 100%;
+    }
+  }
+}
+
+.filters {
+  & {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 4rem;
+
+    @media (max-width: 425px) {
+      justify-content: flex-start;
+    }
+  }
+
+  &__btn {
+    & {
+      background: transparent;
+      font-size: 1.7rem;
+      border: 0;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      transition: 0.1s linear;
+
+      &:hover,
+      &:hover > svg {
+        stroke: var(--hovered-color);
+        color: var(--hovered-color);
+      }
+    }
+
+    & > svg {
+      height: 1.9rem;
+      margin-left: 0.4rem;
+      transition: 0.1s linear;
+    }
+
+    &--sort {
+      margin-left: 1.6rem;
+    }
+  }
+}
+.show {
+  & {
+    display: none;
+
+    @media (max-width: 425px) {
+      display: initial;
+    }
+  }
+}
+
+.hide {
+  @media (max-width: 425px) {
+    display: none;
+  }
+}
+
+.about {
+  &_title {
+    display: flex;
+    justify-content: center;
+    font-size: 30px;
+    padding-top: 140px;
+  }
+  &_vlog {
+    &__img {
+      display: flex;
+      justify-content: center;
+      padding-top: 50px;
+      @media (max-width: $md2) {
+        padding-top: 30px;
+      }
+      @media (max-width: $md3) {
+        padding-top: 20px;
+      }
+      img {
+        height: 440px;
+        @media (max-width: $md2) {
+          height: 380px;
+        }
+        @media (max-width: $md3) {
+          height: 180px;
+        }
+      }
+    }
+    &__subtitle {
+      font-size: 18px;
+      text-align: center;
+      font-family: "Montserrat";
+      padding-top: 30px;
+      @media (max-width: $md3) {
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+.address {
+  &_title {
+    font-size: 40px;
+    font-family: "Montserrat";
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding-top: 120px;
+    font-weight: 400;
+  }
+  &_subtitle {
+    font-size: 20px;
+    font-family: "Montserrat";
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding-top: 30px;
+    font-weight: 200;
+  }
+  &_map {
+    display: flex;
+    justify-content: center;
+    padding-top: 70px;
+    height: 440px;
+    width: 100%;
+    padding-bottom: 100px;
+  }
+}
