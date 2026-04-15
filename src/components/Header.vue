@@ -8,9 +8,8 @@
         <router-link to="/about" class="header__link">О нас</router-link>
         <router-link to="/adress" class="header__link">Адреса</router-link>
         <router-link to="/" class="header__link">Главная</router-link>
-        <router-link to="/" class="header__link">Контакты</router-link>
+        <router-link to="/contact" class="header__link">Контакты</router-link>
       </div>
-      a
       <div class="header__search-container">
         <svg
           width="24"
