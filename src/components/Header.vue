@@ -77,7 +77,9 @@
             />
           </svg>
         </a>
-        <router-link to="/login" class="header__link">Войти</router-link>
+        <button>
+          <router-link to="/login" class="header__link">Войти</router-link>
+        </button>
       </div>
     </header>
   </div>
