@@ -90,6 +90,7 @@ a button:focus {
   justify-content: flex-start;
   align-items: center;
   gap: 2rem;
+  padding-top: 25px;
 }
 @media (max-width: 375px) {
   .header {
@@ -536,7 +537,7 @@ a button:focus {
 }
 .footer_feedback__item {
   display: flex;
-  padding-top: 220px;
+  padding-top: 150px;
   flex-direction: column;
 }
 @media (max-width: 767.98px) {
@@ -602,11 +603,17 @@ a button:focus {
 .footer_feedback__item_social_icon {
   font-size: 30px;
 }
+.footer_feedback__item_social .fa-brands {
+  color: white;
+}
+.footer_feedback__item_social .fa-brands:hover {
+  color: purple;
+}
 .footer_feedback__item_img {
   display: block;
 }
 .footer_feedback__item img {
-  height: 38px;
+  height: 100px;
   width: auto;
 }
 .footer_feedback__item_text {
