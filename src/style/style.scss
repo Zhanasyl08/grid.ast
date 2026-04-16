@@ -19,8 +19,6 @@ $orange: #ffb202;
   flex: 1 0 auto;
 }
 
-
-
 // Основная сетка
 ._container {
   max-width: $maxWidthCon;
@@ -231,7 +229,11 @@ a {
       align-items: center;
       gap: 1.2rem;
     }
-
+    &__loved {
+      &:hover {
+        color: red;
+      }
+    }
     & > a {
       display: flex;
       justify-content: center;
@@ -246,7 +248,7 @@ a {
     }
   }
 
-  &__login {
+  &__log {
     font-size: 20px;
     border-radius: 10px;
     border: none;
@@ -258,10 +260,16 @@ a {
     @media (max-width: $md3) {
       font-size: 13px;
     }
-    button a {
+    a button {
       background-color: transparent;
-      color: orangered;
+      color: rgb(255, 255, 255);
       width: 100%;
+      font-size: 20px;
+      border-radius: 20px;
+      height: 30px;
+      width: 100%;
+      background-color: black;
+      font-weight: 200;
     }
   }
 }
@@ -332,7 +340,7 @@ a {
     &__img {
       display: flex;
       justify-content: center;
-      padding-top: 50px;
+      padding-top: 30px;
       @media (max-width: $md2) {
         padding-top: 30px;
       }
@@ -354,6 +362,7 @@ a {
       text-align: center;
       font-family: "Montserrat";
       padding-top: 30px;
+      padding-bottom: 50px;
       @media (max-width: $md3) {
         font-size: 14px;
       }
@@ -404,7 +413,8 @@ a {
   &_block {
     display: flex;
     flex-direction: column;
-    padding-top: 100px;
+    padding-top: 80px;
+    padding-bottom: 50px;
   }
   &_text {
     font-size: 16px;
@@ -529,9 +539,8 @@ a {
   word-spacing: 100vw;
 }
 
-
 .catalog {
-  margin:50px 0;
+  margin: 50px 0;
   ._container {
   }
   .catalog_blocks {
@@ -540,13 +549,11 @@ a {
     gap: 20px;
   }
   .catalog_block {
-    img{
+    img {
       width: 100%;
     }
   }
 }
-
-
 
 .footer {
   font-family: "Montserrat", sans-serif;
@@ -628,7 +635,7 @@ a {
         &_icon {
           font-size: 30px;
         }
-        .fa-brands {
+        .mdi {
           color: white;
           &:hover {
             color: purple;
@@ -674,4 +681,22 @@ a {
 }
 .filters__btn * {
   pointer-events: none;
+}
+
+section.sign {
+  background-color: rgb(0, 0, 0); /* Ваш цвет */
+  min-height: 100vh; /* Растягиваем на всю высоту экрана */
+  width: 100%; /* Растягиваем на всю ширину */
+  display: flex; /* (Опционально) Чтобы центрировать контент внутри */
+  flex-direction: column;
+  &_in {
+    display: grid;
+    grid-template-columns: repeat(1fr, 1);
+    &__log input[type="password"] {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      color: red;
+    }
+  }
 }

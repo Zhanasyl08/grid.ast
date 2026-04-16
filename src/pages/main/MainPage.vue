@@ -96,34 +96,172 @@
     <div class="_container">
       <div class="catalog_blocks">
         <div class="catalog_block">
-          <img src="@/assets/img/whiteshirt.jpeg" alt="" />
-          <h3>Футболка</h3>
-          <h4>7777₸</h4>
+          <router-link>
+            <img src="@/assets/img/whiteshirt.jpeg" alt="" />
+            <h3>Футболка</h3>
+            <h4>7777₸</h4>
+          </router-link>
         </div>
         <div class="catalog_block">
-          <img src="@/assets/img/whiteshirt.jpeg" alt="" />
-          <h3>Футболка</h3>
-          <h4>7777₸</h4>
+          <router-link>
+            <img src="@/assets/img/whiteshirt.jpeg" alt="" />
+            <h3>Футболка</h3>
+            <h4>7777₸</h4>
+          </router-link>
         </div>
         <div class="catalog_block">
-          <img src="@/assets/img/whiteshirt.jpeg" alt="" />
-          <h3>Футболка</h3>
-          <h4>7777₸</h4>
+          <router-link>
+            <img src="@/assets/img/whiteshirt.jpeg" alt="" />
+            <h3>Футболка</h3>
+            <h4>7777₸</h4>
+          </router-link>
         </div>
         <div class="catalog_block">
-          <img src="@/assets/img/whiteshirt.jpeg" alt="" />
-          <h3>Футболка</h3>
-          <h4>7777₸</h4>
+          <router-link>
+            <img src="@/assets/img/whiteshirt.jpeg" alt="" />
+            <h3>Футболка</h3>
+            <h4>7777₸</h4>
+          </router-link>
         </div>
         <div class="catalog_block">
-          <img src="@/assets/img/whiteshirt.jpeg" alt="" />
-          <h3>Футболка</h3>
-          <h4>7777₸</h4>
+          <router-link>
+            <img src="@/assets/img/whiteshirt.jpeg" alt="" />
+            <h3>Футболка</h3>
+            <h4>7777₸</h4>
+          </router-link>
         </div>
         <div class="catalog_block">
-          <img src="@/assets/img/whiteshirt.jpeg" alt="" />
-          <h3>Футболка</h3>
-          <h4>7777₸</h4>
+          <router-link>
+            <img src="@/assets/img/whiteshirt.jpeg" alt="" />
+            <h3>Футболка</h3>
+            <h4>7777₸</h4>
+          </router-link>
+        </div>
+        <div class="catalog_block">
+          <router-link>
+            <img src="@/assets/img/whiteshirt.jpeg" alt="" />
+            <h3>Футболка</h3>
+            <h4>7777₸</h4>
+          </router-link>
+        </div>
+        <div class="catalog_block">
+          <router-link>
+            <img src="@/assets/img/whiteshirt.jpeg" alt="" />
+            <h3>Футболка</h3>
+            <h4>7777₸</h4>
+          </router-link>
+        </div>
+        <div class="catalog_block">
+          <router-link>
+            <img src="@/assets/img/whiteshirt.jpeg" alt="" />
+            <h3>Футболка</h3>
+            <h4>7777₸</h4>
+          </router-link>
+        </div>
+        <div class="catalog_block">
+          <router-link>
+            <img src="@/assets/img/whiteshirt.jpeg" alt="" />
+            <h3>Футболка</h3>
+            <h4>7777₸</h4>
+          </router-link>
+        </div>
+        <div class="catalog_block">
+          <router-link>
+            <img src="@/assets/img/whiteshirt.jpeg" alt="" />
+            <h3>Футболка</h3>
+            <h4>7777₸</h4>
+          </router-link>
+        </div>
+        <div class="catalog_block">
+          <router-link>
+            <img src="@/assets/img/whiteshirt.jpeg" alt="" />
+            <h3>Футболка</h3>
+            <h4>7777₸</h4>
+          </router-link>
+        </div>
+        <div class="catalog_block">
+          <router-link>
+            <img src="@/assets/img/whiteshirt.jpeg" alt="" />
+            <h3>Футболка</h3>
+            <h4>7777₸</h4>
+          </router-link>
+        </div>
+        <div class="catalog_block">
+          <router-link>
+            <img src="@/assets/img/whiteshirt.jpeg" alt="" />
+            <h3>Футболка</h3>
+            <h4>7777₸</h4>
+          </router-link>
+        </div>
+        <div class="catalog_block">
+          <router-link>
+            <img src="@/assets/img/whiteshirt.jpeg" alt="" />
+            <h3>Футболка</h3>
+            <h4>7777₸</h4>
+          </router-link>
+        </div>
+        <div class="catalog_block">
+          <router-link>
+            <img src="@/assets/img/whiteshirt.jpeg" alt="" />
+            <h3>Футболка</h3>
+            <h4>7777₸</h4>
+          </router-link>
+        </div>
+        <div class="catalog_block">
+          <router-link>
+            <img src="@/assets/img/whiteshirt.jpeg" alt="" />
+            <h3>Футболка</h3>
+            <h4>7777₸</h4>
+          </router-link>
+        </div>
+        <div class="catalog_block">
+          <router-link>
+            <img src="@/assets/img/whiteshirt.jpeg" alt="" />
+            <h3>Футболка</h3>
+            <h4>7777₸</h4>
+          </router-link>
+        </div>
+        <div class="catalog_block">
+          <router-link>
+            <img src="@/assets/img/whiteshirt.jpeg" alt="" />
+            <h3>Футболка</h3>
+            <h4>7777₸</h4>
+          </router-link>
+        </div>
+        <div class="catalog_block">
+          <router-link>
+            <img src="@/assets/img/whiteshirt.jpeg" alt="" />
+            <h3>Футболка</h3>
+            <h4>7777₸</h4>
+          </router-link>
+        </div>
+        <div class="catalog_block">
+          <router-link>
+            <img src="@/assets/img/whiteshirt.jpeg" alt="" />
+            <h3>Футболка</h3>
+            <h4>7777₸</h4>
+          </router-link>
+        </div>
+        <div class="catalog_block">
+          <router-link>
+            <img src="@/assets/img/whiteshirt.jpeg" alt="" />
+            <h3>Футболка</h3>
+            <h4>7777₸</h4>
+          </router-link>
+        </div>
+        <div class="catalog_block">
+          <router-link>
+            <img src="@/assets/img/whiteshirt.jpeg" alt="" />
+            <h3>Футболка</h3>
+            <h4>7777₸</h4>
+          </router-link>
+        </div>
+        <div class="catalog_block">
+          <router-link>
+            <img src="@/assets/img/whiteshirt.jpeg" alt="" />
+            <h3>Футболка</h3>
+            <h4>7777₸</h4>
+          </router-link>
         </div>
       </div>
     </div>

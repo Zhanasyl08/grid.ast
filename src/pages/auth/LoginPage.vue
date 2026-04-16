@@ -1,9 +1,15 @@
 <template>
-  <div>
-    <input v-model="username" placeholder="логин" />
-    <input v-model="password" type="password" placeholder="пароль" />
-    <button @click="handleLogin">Войти</button>
-  </div>
+  <section class="sign">
+    <div class="sign_in">
+      <div class="sign_in_log">
+        <input v-model="username" placeholder="логин" />
+        <input v-model="password" type="password" placeholder="пароль" />
+      </div>
+      <div class="sign_in__btn">
+        <button @click="handleLogin">Войти</button>
+      </div>
+    </div>
+  </section>
 </template>
 
 <script setup>

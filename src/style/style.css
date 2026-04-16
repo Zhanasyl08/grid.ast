@@ -1,4 +1,9 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+.main {
+  flex: 1 0 auto;
+}
+
 ._container {
   max-width: 1280px;
   margin: 0 auto;
@@ -197,6 +202,9 @@ a button:focus {
   align-items: center;
   gap: 1.2rem;
 }
+.header__user__loved:hover {
+  color: red;
+}
 .header__user > a {
   display: flex;
   justify-content: center;
@@ -208,7 +216,7 @@ a button:focus {
 .header__user > a:hover {
   background-color: var(--hovered-background);
 }
-.header__login {
+.header__log {
   font-size: 20px;
   border-radius: 10px;
   border: none;
@@ -216,19 +224,25 @@ a button:focus {
   width: 100%;
 }
 @media (max-width: 767.98px) {
-  .header__login {
+  .header__log {
     font-size: 16px;
   }
 }
 @media (max-width: 767.98px) {
-  .header__login {
+  .header__log {
     font-size: 13px;
   }
 }
-.header__login button a {
+.header__log a button {
   background-color: transparent;
-  color: orangered;
+  color: rgb(255, 255, 255);
   width: 100%;
+  font-size: 20px;
+  border-radius: 20px;
+  height: 30px;
+  width: 100%;
+  background-color: black;
+  font-weight: 200;
 }
 
 .filters {
@@ -287,7 +301,7 @@ a button:focus {
 .about_vlog__img {
   display: flex;
   justify-content: center;
-  padding-top: 50px;
+  padding-top: 30px;
 }
 @media (max-width: 991.98px) {
   .about_vlog__img {
@@ -317,6 +331,7 @@ a button:focus {
   text-align: center;
   font-family: "Montserrat";
   padding-top: 30px;
+  padding-bottom: 50px;
 }
 @media (max-width: 767.98px) {
   .about_vlog__subtitle {
@@ -366,7 +381,8 @@ a button:focus {
 .contact_block {
   display: flex;
   flex-direction: column;
-  padding-top: 100px;
+  padding-top: 80px;
+  padding-bottom: 50px;
 }
 .contact_text {
   font-size: 16px;
@@ -487,24 +503,15 @@ a button:focus {
   word-spacing: 100vw;
 }
 
-.catalog_blocks {
+.catalog {
+  margin: 50px 0;
+}
+.catalog .catalog_blocks {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  border: #4f4f4f;
-  position: static;
-  height: 140px;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 20px;
 }
-.catalog_block {
-  border: 1px solid #484848;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  padding: 40px;
-  height: 300px;
-  width: auto;
-}
-.catalog_block img {
-  height: 150px;
+.catalog .catalog_block img {
   width: 100%;
 }
 
@@ -603,10 +610,10 @@ a button:focus {
 .footer_feedback__item_social_icon {
   font-size: 30px;
 }
-.footer_feedback__item_social .fa-brands {
+.footer_feedback__item_social .mdi {
   color: white;
 }
-.footer_feedback__item_social .fa-brands:hover {
+.footer_feedback__item_social .mdi:hover {
   color: purple;
 }
 .footer_feedback__item_img {
@@ -623,4 +630,47 @@ a button:focus {
   font-size: 11px;
   line-height: 1.6;
   margin-bottom: 15px;
+}
+
+.popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.popup.active {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-content {
+  background: white;
+  padding: 20px;
+}
+
+.filters__btn * {
+  pointer-events: none;
+}
+
+section.sign {
+  background-color: rgb(0, 0, 0); /* Ваш цвет */
+  min-height: 100vh; /* Растягиваем на всю высоту экрана */
+  width: 100%; /* Растягиваем на всю ширину */
+  display: flex; /* (Опционально) Чтобы центрировать контент внутри */
+  flex-direction: column;
+}
+section.sign_in {
+  display: grid;
+  grid-template-columns: repeat(1fr, 1);
+}
+section.sign_in__log input[type=password] {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: red;
 }/*# sourceMappingURL=style.css.map */

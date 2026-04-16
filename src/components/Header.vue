@@ -81,10 +81,11 @@ import { onActivated } from "vue";
             />
           </svg>
         </a>
-
-        <router-link @click="" to="/login" class="header__link"
-          ><button>Войти</button></router-link
-        >
+        <div class="header__log">
+          <router-link @click="" to="/login"
+            ><button>Войти</button></router-link
+          >
+        </div>
       </div>
     </header>
   </div>
