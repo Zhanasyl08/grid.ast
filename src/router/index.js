@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 
 import MainLayout from "@/layouts/MainLayout.vue";
+import DefaultLayout from "@/layouts/DefaultLayout.vue";
 
 import Home from "../pages/main/MainPage.vue";
 import About from "../pages/main/AboutPage.vue";
@@ -29,16 +30,22 @@ const routes = [
         path: "contact",
         component: Contact,
       },
-      {
-        path: "/login",
-        component: Login,
-      },
     ],
   },
-  {
-    path: "/login",
-    component: Login,
+
+
+    {
+    path: "/",
+    component: DefaultLayout,
+    children: [
+        {
+          path: "/login",
+          component: Login,
+        },
+
+    ],
   },
+
 ];
 
 const router = createRouter({

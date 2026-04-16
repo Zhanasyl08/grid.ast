@@ -1,8 +1,4 @@
 <template>
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-  />
   <section class="footer" id="contact">
     <div class="_container">
       <div class="footer_body">
@@ -23,18 +19,20 @@
             <div class="footer_feedback__item_list">Оптом</div>
             <div class="footer_feedback__item_list">Розница</div>
             <div class="footer_feedback__item_social">
+          <div class="footer_feedback__item_social">
               <div class="footer_feedback__item_social_icon">
-                <a href="ссылка"><i class="fa-brands fa-instagram"></i></a>
+                <a href="ссылка"><i class="mdi mdi-instagram"></i></a>
               </div>
               <div class="footer_feedback__item_social_icon">
-                <a href="ссылка"><i class="fa-brands fa-youtube"></i></a>
+                <a href="ссылка"><i class="mdi mdi-youtube"></i></a>
               </div>
               <div class="footer_feedback__item_social_icon">
-                <a href="ссылка"><i class="fa-brands fa-facebook"></i></a>
+                <a href="ссылка"><i class="mdi mdi-facebook"></i></a>
               </div>
               <div class="footer_feedback__item_social_icon">
-                <a href="ссылка"><i class="fa-brands fa-whatsapp"></i></a>
+                <a href="ссылка"><i class="mdi mdi-whatsapp"></i></a>
               </div>
+            </div>
             </div>
           </div>
           <div class="footer_feedback__item">

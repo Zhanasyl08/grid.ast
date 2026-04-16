@@ -19,10 +19,7 @@ $orange: #ffb202;
   flex: 1 0 auto;
 }
 
-/* 4. Футер остается внизу */
-footer {
-  flex-shrink: 0;
-}
+
 
 // Основная сетка
 ._container {
@@ -532,41 +529,25 @@ a {
   word-spacing: 100vw;
 }
 
+
 .catalog {
-  &_blocks {
+  margin:50px 0;
+  ._container {
+  }
+  .catalog_blocks {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    border: #4f4f4f;
-    position: static;
-    height: 140px;
-    padding-top: 100px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 20px;
   }
-  &_block {
-    border: 2px solid #484848;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    padding: 40px;
-    height: 300px;
-    width: auto;
-    background-color: rgb(172, 172, 172);
-    img {
-      height: 300px;
-      width: auto;
-      border: 3px solid black;
-      border-radius: 10px;
-    }
-    h4 {
-      font-size: 12px;
-      font-weight: 200;
-    }
-    h3 {
-      font-size: 14px;
-      font-weight: 300;
+  .catalog_block {
+    img{
+      width: 100%;
     }
   }
 }
+
+
+
 .footer {
   font-family: "Montserrat", sans-serif;
   background-size: cover;
@@ -575,7 +556,6 @@ a {
   background-color: black;
 
   &_feedback {
-    position: fixed; // position: sticky; bottom: 0;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 0 40px;

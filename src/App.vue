@@ -4,12 +4,12 @@ import Footer from "./components/Footer.vue";
 </script>
 
 <template>
-  <div class="layout">
+  <!-- <div class="layout">
     <Header />
 
-    <main class="main">
+    <main class="main"> -->
       <router-view />
-    </main>
-    <Footer />
-  </div>
+    <!-- </main>
+    <Footer /> -->
+  <!-- </div> -->
 </template>
