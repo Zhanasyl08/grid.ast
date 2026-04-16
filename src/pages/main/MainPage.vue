@@ -4,8 +4,7 @@
       <div class="main">
         <div class="filters">
           <button class="filters__btn">
-            <span class="show">Show</span
-            ><span class="hide"></span>&nbsp;Filters
+            <span class="hide"></span>&nbsp;Filters
             <svg
               width="24"
               height="25"
@@ -40,6 +39,12 @@
               />
             </svg>
           </button>
+        </div>
+        <div id="popup" class="popup">
+          <div class="popup-content">
+            <span id="closeBtn">&times;</span>
+            <p>Это всплывающее окно!</p>
+          </div>
         </div>
       </div>
       <link
@@ -84,57 +89,41 @@
           <div></div>
         </div>
       </div>
+    </div>
+  </div>
 
-      <div class="catalog">
-        <div class="catalog_blocks">
-          <div class="catalog_block">
-            <img src="./assets/img/whiteshirt.jpeg" alt="" />
-            <h3>Футболка</h3>
-          </div>
-          <div class="catalog_block">
-            <img src="./assets/img/whiteshirt.jpeg" alt="" />
-            <h3>Футболка</h3>
-          </div>
-          <div class="catalog_block">
-            <img src="./assets/img/whiteshirt.jpeg" alt="" />
-            <h3>Футболка</h3>
-          </div>
-          <div class="catalog_block">
-            <img src="./assets/img/whiteshirt.jpeg" alt="" />
-            <h3>Футболка</h3>
-          </div>
-          <div class="catalog_block">
-            <img src="./assets/img/whiteshirt.jpeg" alt="" />
-            <h3>Футболка</h3>
-          </div>
-          <div class="catalog_block">
-            <img src="./assets/img/whiteshirt.jpeg" alt="" />
-            <h3>Футболка</h3>
-          </div>
-          <div class="catalog_block">
-            <img src="./assets/img/whiteshirt.jpeg" alt="" />
-            <h3>Футболка</h3>
-          </div>
-          <div class="catalog_block">
-            <img src="./assets/img/whiteshirt.jpeg" alt="" />
-            <h3>Футболка</h3>
-          </div>
-          <div class="catalog_block">
-            <img src="./assets/img/whiteshirt.jpeg" alt="" />
-            <h3>Футболка</h3>
-          </div>
-          <div class="catalog_block">
-            <img src="./assets/img/whiteshirt.jpeg" alt="" />
-            <h3>Футболка</h3>
-          </div>
-          <div class="catalog_block">
-            <img src="./assets/img/whiteshirt.jpeg" alt="" />
-            <h3>Футболка</h3>
-          </div>
-          <div class="catalog_block">
-            <img src="./assets/img/whiteshirt.jpeg" alt="" />
-            <h3>Футболка</h3>
-          </div>
+  <div class="catalog">
+    <div class="_container">
+      <div class="catalog_blocks">
+        <div class="catalog_block">
+          <img src="@/assets/img/whiteshirt.jpeg" alt="" />
+          <h3>Футболка</h3>
+          <h4>7777₸</h4>
+        </div>
+        <div class="catalog_block">
+          <img src="@/assets/img/whiteshirt.jpeg" alt="" />
+          <h3>Футболка</h3>
+          <h4>7777₸</h4>
+        </div>
+        <div class="catalog_block">
+          <img src="@/assets/img/whiteshirt.jpeg" alt="" />
+          <h3>Футболка</h3>
+          <h4>7777₸</h4>
+        </div>
+        <div class="catalog_block">
+          <img src="@/assets/img/whiteshirt.jpeg" alt="" />
+          <h3>Футболка</h3>
+          <h4>7777₸</h4>
+        </div>
+        <div class="catalog_block">
+          <img src="@/assets/img/whiteshirt.jpeg" alt="" />
+          <h3>Футболка</h3>
+          <h4>7777₸</h4>
+        </div>
+        <div class="catalog_block">
+          <img src="@/assets/img/whiteshirt.jpeg" alt="" />
+          <h3>Футболка</h3>
+          <h4>7777₸</h4>
         </div>
       </div>
     </div>

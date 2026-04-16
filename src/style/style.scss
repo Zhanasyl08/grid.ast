@@ -15,6 +15,14 @@ $main: #1c4ea4;
 $grey: #aeaeae;
 $footer: #03313b;
 $orange: #ffb202;
+.main {
+  flex: 1 0 auto;
+}
+
+/* 4. Футер остается внизу */
+footer {
+  flex-shrink: 0;
+}
 
 // Основная сетка
 ._container {
@@ -531,18 +539,31 @@ a {
     border: #4f4f4f;
     position: static;
     height: 140px;
+    padding-top: 100px;
+    gap: 20px;
   }
   &_block {
-    border: 1px solid #484848;
+    border: 2px solid #484848;
     display: flex;
     justify-content: center;
     flex-direction: column;
     padding: 40px;
     height: 300px;
     width: auto;
+    background-color: rgb(172, 172, 172);
     img {
-      height: 150px;
-      width: 100%;
+      height: 300px;
+      width: auto;
+      border: 3px solid black;
+      border-radius: 10px;
+    }
+    h4 {
+      font-size: 12px;
+      font-weight: 200;
+    }
+    h3 {
+      font-size: 14px;
+      font-weight: 300;
     }
   }
 }
@@ -554,6 +575,7 @@ a {
   background-color: black;
 
   &_feedback {
+    position: fixed; // position: sticky; bottom: 0;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 0 40px;
@@ -650,4 +672,26 @@ a {
       }
     }
   }
+}
+
+.popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
+.popup.active {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.popup-content {
+  background: white;
+  padding: 20px;
+}
+.filters__btn * {
+  pointer-events: none;
 }
