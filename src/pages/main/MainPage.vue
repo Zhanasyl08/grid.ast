@@ -140,3 +140,15 @@
     </div>
   </div>
 </template>
+<script setup>
+import { onMounted } from "vue";
+import { getMe } from "@/api/auth";
+import { authStore } from "@/store/auth";
+
+onMounted(async () => {
+  if (authStore.accessToken) {
+    const user = await getMe(authStore.accessToken);
+    authStore.user = user;
+  }
+});
+</script>

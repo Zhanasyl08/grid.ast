@@ -1,3 +1,7 @@
+<script setup lang="ts">
+import { onActivated } from "vue";
+</script>
+
 <template>
   <div class="_container">
     <header class="header">
@@ -77,9 +81,10 @@
             />
           </svg>
         </a>
-        <button>
-          <router-link to="/login" class="header__link">Войти</router-link>
-        </button>
+
+        <router-link @cLick="onActivated" to="/login" class="header__link"
+          ><button>Войти</button></router-link
+        >
       </div>
     </header>
   </div>
