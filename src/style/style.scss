@@ -565,7 +565,8 @@ a {
   &_feedback {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 0 40px;
+    padding: 30px;
+    gap: 0 20px;
     padding-bottom: 80px;
     @media (max-width: $md2) {
       grid-template-columns: repeat(2, 1fr);
