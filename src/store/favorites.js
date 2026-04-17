@@ -20,7 +20,6 @@ export const useFavorites = () => {
     return favorites.value.some((p) => p.id === id);
   };
 
-  // 💾 САМО СОХРАНЕНИЕ
   watch(
     favorites,
     (newVal) => {

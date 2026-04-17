@@ -66,7 +66,6 @@ const router = createRouter({
   routes,
 });
 
-// 🔒 защита роутов
 router.beforeEach((to, from, next) => {
   const token = localStorage.getItem("token");
 

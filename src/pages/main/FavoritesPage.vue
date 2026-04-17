@@ -12,6 +12,9 @@
           <p>{{ item.price }}₸</p>
           <h4>{{ item.subdesc }}</h4>
         </div>
+        <button class="fav__delete" @click="removeFromFavorites(item.id)">
+          Х Удалить
+        </button>
       </div>
       <button class="product__cart fav__cart">Добавить в корзину</button>
     </div>
@@ -23,5 +26,5 @@
 <script setup>
 import { useFavorites } from "@/store/favorites";
 
-const { favorites } = useFavorites();
+const { favorites, removeFromFavorites } = useFavorites();
 </script>
