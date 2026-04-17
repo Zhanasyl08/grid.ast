@@ -1,5 +1,5 @@
 <template>
-  <div class="page">
+  <section class="page">
     <div class="_container">
       <div class="product">
         <img src="@/assets/img/whiteshirt.jpeg" alt="" />
@@ -58,7 +58,7 @@
       </div>
       <button class="product_nav" @click="$router.back()">Назад</button>
     </div>
-  </div>
+  </section>
 </template>
 
 <script setup>

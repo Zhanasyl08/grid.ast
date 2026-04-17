@@ -69,7 +69,7 @@ body {
 }
 @media (max-width: 425px) {
   body {
-    padding: 1rem;
+    padding: 0rem;
   }
 }
 
@@ -699,18 +699,54 @@ section.sign_in__log input[type=password] {
 
 .product {
   display: flex;
-  padding-top: 100px;
-  padding-bottom: 40px;
   font-family: "Montserrat";
+  padding: 100px 5px 40px 5px;
 }
 .product img {
   width: 100%;
   max-width: 300px;
   border: 1px solid black;
 }
+@media (max-width: 767.98px) {
+  .product img {
+    height: 100%;
+    max-width: 140px;
+  }
+}
+@media (max-width: 991.98px) {
+  .product img {
+    height: 100%;
+    max-width: 220px;
+  }
+}
 .product__desc {
   gap: 40px;
-  padding: 20px 40px;
+  padding: 5px 40px;
+  font-family: "Montserrat";
+}
+@media (max-width: 767.98px) {
+  .product__desc {
+    gap: 20px;
+    padding: 0px 20px;
+  }
+}
+.product__name {
+  font-size: 40px;
+  font-family: "Montserrat";
+}
+@media (max-width: 767.98px) {
+  .product__name {
+    font-size: 20px;
+  }
+}
+.product__price {
+  font-size: 22px;
+  font-family: "Montserrat";
+  font-weight: 400;
+}
+.product__description {
+  font-size: 14px;
+  font-weight: 300;
   font-family: "Montserrat";
 }
 .product_nav {
@@ -738,6 +774,14 @@ section.sign_in__log input[type=password] {
   background-color: black;
   color: white;
 }
+@media (max-width: 767.98px) {
+  .product__count {
+    font-weight: 300;
+    padding: 5px;
+    font-size: 12px;
+    margin-top: 5px;
+  }
+}
 .product span {
   font-size: 14px;
   font-family: "Montserrat";
@@ -753,6 +797,13 @@ section.sign_in__log input[type=password] {
   background-color: black;
   color: white;
 }
+@media (max-width: 767.98px) {
+  .product__cart {
+    padding: 10px;
+    font-weight: 300;
+    margin-top: 10px;
+  }
+}
 .product__fav button {
   font-size: 20px;
   font-family: "Montserrat";
@@ -764,4 +815,10 @@ section.sign_in__log input[type=password] {
 .product__fav button:hover {
   background-color: rgb(126, 0, 0);
   color: white;
+}
+@media (max-width: 767.98px) {
+  .product__fav button {
+    font-size: 14px;
+    padding: 7px;
+  }
 }/*# sourceMappingURL=style.css.map */
