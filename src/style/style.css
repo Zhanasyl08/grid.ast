@@ -752,4 +752,16 @@ section.sign_in__log input[type=password] {
 .product__cart:hover {
   background-color: black;
   color: white;
+}
+.product__fav button {
+  font-size: 20px;
+  font-family: "Montserrat";
+  padding: 15px;
+  border-radius: 20px;
+  font-weight: 400;
+  border: 1px solid rgb(126, 0, 0);
+}
+.product__fav button:hover {
+  background-color: rgb(126, 0, 0);
+  color: white;
 }/*# sourceMappingURL=style.css.map */

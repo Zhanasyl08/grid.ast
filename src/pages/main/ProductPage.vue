@@ -39,6 +39,21 @@
               Добавить в корзину ({{ quantity }} шт, {{ selectedSize }})
             </button>
           </div>
+          <div style="margin-top: 20px" class="product__fav">
+            <button
+              @click="
+                isFavorite(product.id)
+                  ? removeFromFavorites(product.id)
+                  : addToFavorites(product)
+              "
+            >
+              {{
+                isFavorite(product.id)
+                  ? "💔 Убрать из избранного"
+                  : "❤️ В избранное"
+              }}
+            </button>
+          </div>
         </div>
       </div>
       <button class="product_nav" @click="$router.back()">Назад</button>
@@ -49,6 +64,9 @@
 <script setup>
 import { useRoute } from "vue-router";
 import { ref, onMounted } from "vue";
+import { useFavorites } from "@/store/favorites";
+
+const { addToFavorites, removeFromFavorites, isFavorite } = useFavorites();
 
 const route = useRoute();
 const product = ref({});
