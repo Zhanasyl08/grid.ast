@@ -30,22 +30,30 @@ const routes = [
         path: "contact",
         component: Contact,
       },
+      // router/index.js
+      {
+        path: "/catalog/:page",
+        name: "Catalog",
+        component: () => import("../pages/main/MainPage.vue"),
+      },
+      {
+        path: "/product/:id",
+        name: "Product",
+        component: () => import("../pages/main/ProductPage.vue"),
+      },
     ],
   },
 
-
-    {
+  {
     path: "/",
     component: DefaultLayout,
     children: [
-        {
-          path: "/login",
-          component: Login,
-        },
-
+      {
+        path: "/login",
+        component: Login,
+      },
     ],
   },
-
 ];
 
 const router = createRouter({

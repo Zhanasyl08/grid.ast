@@ -270,6 +270,9 @@ a {
       width: 100%;
       background-color: black;
       font-weight: 200;
+      @media (max-width: $md3) {
+        display: none;
+      }
     }
   }
 }
@@ -690,6 +693,7 @@ section.sign {
   width: 100%; /* Растягиваем на всю ширину */
   display: flex; /* (Опционально) Чтобы центрировать контент внутри */
   flex-direction: column;
+
   &_in {
     display: grid;
     grid-template-columns: repeat(1fr, 1);
@@ -698,6 +702,81 @@ section.sign {
       flex-direction: column;
       justify-content: center;
       color: red;
+    }
+  }
+}
+
+.pagination {
+  button {
+    background-color: transparent;
+    border-radius: 20px;
+    padding: 20px;
+    border: 2px solid black;
+    font-family: "montserrat";
+    font-weight: 500;
+    &:hover {
+      background-color: black;
+      color: white;
+    }
+  }
+  span {
+    font-family: "Montserrat";
+  }
+}
+
+.product {
+  display: flex;
+  padding-top: 100px;
+  padding-bottom: 40px;
+  font-family: "Montserrat";
+  img {
+    width: 100%;
+    max-width: 300px;
+    border: 1px solid black;
+  }
+  &__desc {
+    gap: 40px;
+    padding: 20px 40px;
+    font-family: "Montserrat";
+  }
+  &_nav {
+    margin: 20px 0px;
+    background-color: transparent;
+    font-family: "Montserrat";
+    padding: 15px;
+    border-radius: 10px;
+    &:hover {
+      background-color: black;
+      color: white;
+    }
+  }
+  button {
+    background-color: transparent;
+  }
+  &__count {
+    font-weight: 500;
+    padding: 10px;
+    font-size: 15px;
+    margin-top: 10px;
+    border-radius: 10px;
+    &:hover {
+      background-color: black;
+      color: white;
+    }
+  }
+  span {
+    font-size: 14px;
+    font-family: "Montserrat";
+  }
+  &__cart {
+    padding: 20px;
+    font-family: "montserrat";
+    font-weight: 400;
+    margin-top: 60px;
+    border-radius: 20px;
+    &:hover {
+      background-color: black;
+      color: white;
     }
   }
 }

@@ -95,182 +95,109 @@
   <div class="catalog">
     <div class="_container">
       <div class="catalog_blocks">
-        <div class="catalog_block">
-          <router-link>
+        <div
+          class="catalog_block"
+          v-for="product in paginatedProducts"
+          :key="product.id"
+        >
+          <router-link :to="`/product/${product.id}`">
             <img src="@/assets/img/whiteshirt.jpeg" alt="" />
-            <h3>Футболка</h3>
-            <h4>7777₸</h4>
+            <h3>{{ product.name }}</h3>
+            <h4>{{ product.price }}₸</h4>
           </router-link>
         </div>
-        <div class="catalog_block">
-          <router-link>
-            <img src="@/assets/img/whiteshirt.jpeg" alt="" />
-            <h3>Футболка</h3>
-            <h4>7777₸</h4>
-          </router-link>
-        </div>
-        <div class="catalog_block">
-          <router-link>
-            <img src="@/assets/img/whiteshirt.jpeg" alt="" />
-            <h3>Футболка</h3>
-            <h4>7777₸</h4>
-          </router-link>
-        </div>
-        <div class="catalog_block">
-          <router-link>
-            <img src="@/assets/img/whiteshirt.jpeg" alt="" />
-            <h3>Футболка</h3>
-            <h4>7777₸</h4>
-          </router-link>
-        </div>
-        <div class="catalog_block">
-          <router-link>
-            <img src="@/assets/img/whiteshirt.jpeg" alt="" />
-            <h3>Футболка</h3>
-            <h4>7777₸</h4>
-          </router-link>
-        </div>
-        <div class="catalog_block">
-          <router-link>
-            <img src="@/assets/img/whiteshirt.jpeg" alt="" />
-            <h3>Футболка</h3>
-            <h4>7777₸</h4>
-          </router-link>
-        </div>
-        <div class="catalog_block">
-          <router-link>
-            <img src="@/assets/img/whiteshirt.jpeg" alt="" />
-            <h3>Футболка</h3>
-            <h4>7777₸</h4>
-          </router-link>
-        </div>
-        <div class="catalog_block">
-          <router-link>
-            <img src="@/assets/img/whiteshirt.jpeg" alt="" />
-            <h3>Футболка</h3>
-            <h4>7777₸</h4>
-          </router-link>
-        </div>
-        <div class="catalog_block">
-          <router-link>
-            <img src="@/assets/img/whiteshirt.jpeg" alt="" />
-            <h3>Футболка</h3>
-            <h4>7777₸</h4>
-          </router-link>
-        </div>
-        <div class="catalog_block">
-          <router-link>
-            <img src="@/assets/img/whiteshirt.jpeg" alt="" />
-            <h3>Футболка</h3>
-            <h4>7777₸</h4>
-          </router-link>
-        </div>
-        <div class="catalog_block">
-          <router-link>
-            <img src="@/assets/img/whiteshirt.jpeg" alt="" />
-            <h3>Футболка</h3>
-            <h4>7777₸</h4>
-          </router-link>
-        </div>
-        <div class="catalog_block">
-          <router-link>
-            <img src="@/assets/img/whiteshirt.jpeg" alt="" />
-            <h3>Футболка</h3>
-            <h4>7777₸</h4>
-          </router-link>
-        </div>
-        <div class="catalog_block">
-          <router-link>
-            <img src="@/assets/img/whiteshirt.jpeg" alt="" />
-            <h3>Футболка</h3>
-            <h4>7777₸</h4>
-          </router-link>
-        </div>
-        <div class="catalog_block">
-          <router-link>
-            <img src="@/assets/img/whiteshirt.jpeg" alt="" />
-            <h3>Футболка</h3>
-            <h4>7777₸</h4>
-          </router-link>
-        </div>
-        <div class="catalog_block">
-          <router-link>
-            <img src="@/assets/img/whiteshirt.jpeg" alt="" />
-            <h3>Футболка</h3>
-            <h4>7777₸</h4>
-          </router-link>
-        </div>
-        <div class="catalog_block">
-          <router-link>
-            <img src="@/assets/img/whiteshirt.jpeg" alt="" />
-            <h3>Футболка</h3>
-            <h4>7777₸</h4>
-          </router-link>
-        </div>
-        <div class="catalog_block">
-          <router-link>
-            <img src="@/assets/img/whiteshirt.jpeg" alt="" />
-            <h3>Футболка</h3>
-            <h4>7777₸</h4>
-          </router-link>
-        </div>
-        <div class="catalog_block">
-          <router-link>
-            <img src="@/assets/img/whiteshirt.jpeg" alt="" />
-            <h3>Футболка</h3>
-            <h4>7777₸</h4>
-          </router-link>
-        </div>
-        <div class="catalog_block">
-          <router-link>
-            <img src="@/assets/img/whiteshirt.jpeg" alt="" />
-            <h3>Футболка</h3>
-            <h4>7777₸</h4>
-          </router-link>
-        </div>
-        <div class="catalog_block">
-          <router-link>
-            <img src="@/assets/img/whiteshirt.jpeg" alt="" />
-            <h3>Футболка</h3>
-            <h4>7777₸</h4>
-          </router-link>
-        </div>
-        <div class="catalog_block">
-          <router-link>
-            <img src="@/assets/img/whiteshirt.jpeg" alt="" />
-            <h3>Футболка</h3>
-            <h4>7777₸</h4>
-          </router-link>
-        </div>
-        <div class="catalog_block">
-          <router-link>
-            <img src="@/assets/img/whiteshirt.jpeg" alt="" />
-            <h3>Футболка</h3>
-            <h4>7777₸</h4>
-          </router-link>
-        </div>
-        <div class="catalog_block">
-          <router-link>
-            <img src="@/assets/img/whiteshirt.jpeg" alt="" />
-            <h3>Футболка</h3>
-            <h4>7777₸</h4>
-          </router-link>
-        </div>
-        <div class="catalog_block">
-          <router-link>
-            <img src="@/assets/img/whiteshirt.jpeg" alt="" />
-            <h3>Футболка</h3>
-            <h4>7777₸</h4>
-          </router-link>
-        </div>
+      </div>
+
+      <div style="margin-top: 20px; text-align: center" class="pagination">
+        <button @click="prevPage">← Назад</button>
+        <span style="margin: 0 10px">Страница {{ currentPage }}</span>
+        <button @click="nextPage">Вперёд →</button>
       </div>
     </div>
   </div>
 </template>
 <script setup>
-import { onMounted } from "vue";
+import { onMounted, ref, computed } from "vue";
 import { getMe } from "@/api/auth";
 import { authStore } from "@/store/auth";
+
+const allProducts = ref([
+  { id: 1, name: "Футболка", price: 7777 },
+  { id: 2, name: "Футболка", price: 7777 },
+  { id: 3, name: "Футболка", price: 7777 },
+  { id: 4, name: "Футболка", price: 7777 },
+  { id: 5, name: "Футболка", price: 7777 },
+  { id: 6, name: "Футболка", price: 7777 },
+  { id: 7, name: "Футболка", price: 7777 },
+  { id: 8, name: "Футболка", price: 7777 },
+  { id: 9, name: "Футболка", price: 7777 },
+  { id: 10, name: "Футболка", price: 7777 },
+  { id: 11, name: "Футболка", price: 7777 },
+  { id: 12, name: "Футболка", price: 7777 },
+  { id: 13, name: "Кроссовки", price: 7777 },
+  { id: 14, name: "Кроссовки", price: 7777 },
+  { id: 15, name: "Кроссовки", price: 7777 },
+  { id: 16, name: "Кроссовки", price: 7777 },
+  { id: 17, name: "Кроссовки", price: 7777 },
+  { id: 18, name: "Кроссовки", price: 7777 },
+  { id: 19, name: "Кроссовки", price: 7777 },
+  { id: 20, name: "Кроссовки", price: 7777 },
+  { id: 21, name: "Кроссовки", price: 7777 },
+  { id: 22, name: "Кроссовки", price: 7777 },
+  { id: 23, name: "Кроссовки", price: 7777 },
+  { id: 24, name: "Кроссовки", price: 7777 },
+  { id: 25, name: "Штаны ", price: 7777 },
+  { id: 26, name: "Штаны", price: 7777 },
+  { id: 27, name: "Штаны", price: 7777 },
+  { id: 28, name: "Штаны", price: 7777 },
+  { id: 29, name: "Штаны", price: 7777 },
+  { id: 30, name: "Штаны", price: 7777 },
+  { id: 31, name: "Штаны", price: 7777 },
+
+  { id: 32, name: "Штаны", price: 7777 },
+  { id: 34, name: "Штаны", price: 7777 },
+  { id: 35, name: "Штаны", price: 7777 },
+  { id: 36, name: "Штаны", price: 7777 },
+  { id: 37, name: "Штаны", price: 7777 },
+  { id: 38, name: "Штаны", price: 7777 },
+  { id: 39, name: "Штаны", price: 7777 },
+  { id: 40, name: "Штаны", price: 7777 },
+  { id: 41, name: "Штаны", price: 7777 },
+  { id: 42, name: "Штаны", price: 7777 },
+  { id: 43, name: "Штаны", price: 7777 },
+  { id: 44, name: "Штаны", price: 7777 },
+  { id: 45, name: "Штаны", price: 7777 },
+  { id: 46, name: "Штаны", price: 7777 },
+  { id: 47, name: "Штаны", price: 7777 },
+  { id: 48, name: "Штаны", price: 7777 },
+]);
+
+const currentPage = ref(1);
+const perPage = 12;
+
+const paginatedProducts = computed(() => {
+  const start = (currentPage.value - 1) * perPage;
+  return allProducts.value.slice(start, start + perPage);
+});
+
+const nextPage = () => {
+  if (currentPage.value * perPage < allProducts.value.length) {
+    currentPage.value++;
+  }
+};
+
+const prevPage = () => {
+  if (currentPage.value > 1) {
+    currentPage.value--;
+  }
+};
+
+onMounted(async () => {
+  if (authStore.accessToken) {
+    const user = await getMe(authStore.accessToken);
+    authStore.user = user;
+  }
+});
 
 onMounted(async () => {
   if (authStore.accessToken) {

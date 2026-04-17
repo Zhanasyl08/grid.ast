@@ -83,7 +83,7 @@ import { onActivated } from "vue";
         </a>
         <div class="header__log">
           <router-link @click="" to="/login"
-            ><button>Войти</button></router-link
+            ><button>Профиль</button></router-link
           >
         </div>
       </div>

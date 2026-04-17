@@ -244,6 +244,11 @@ a button:focus {
   background-color: black;
   font-weight: 200;
 }
+@media (max-width: 767.98px) {
+  .header__log a button {
+    display: none;
+  }
+}
 
 .filters {
   display: flex;
@@ -674,4 +679,77 @@ section.sign_in__log input[type=password] {
   flex-direction: column;
   justify-content: center;
   color: red;
+}
+
+.pagination button {
+  background-color: transparent;
+  border-radius: 20px;
+  padding: 20px;
+  border: 2px solid black;
+  font-family: "montserrat";
+  font-weight: 500;
+}
+.pagination button:hover {
+  background-color: black;
+  color: white;
+}
+.pagination span {
+  font-family: "Montserrat";
+}
+
+.product {
+  display: flex;
+  padding-top: 100px;
+  padding-bottom: 40px;
+  font-family: "Montserrat";
+}
+.product img {
+  width: 100%;
+  max-width: 300px;
+  border: 1px solid black;
+}
+.product__desc {
+  gap: 40px;
+  padding: 20px 40px;
+  font-family: "Montserrat";
+}
+.product_nav {
+  margin: 20px 0px;
+  background-color: transparent;
+  font-family: "Montserrat";
+  padding: 15px;
+  border-radius: 10px;
+}
+.product_nav:hover {
+  background-color: black;
+  color: white;
+}
+.product button {
+  background-color: transparent;
+}
+.product__count {
+  font-weight: 500;
+  padding: 10px;
+  font-size: 15px;
+  margin-top: 10px;
+  border-radius: 10px;
+}
+.product__count:hover {
+  background-color: black;
+  color: white;
+}
+.product span {
+  font-size: 14px;
+  font-family: "Montserrat";
+}
+.product__cart {
+  padding: 20px;
+  font-family: "montserrat";
+  font-weight: 400;
+  margin-top: 60px;
+  border-radius: 20px;
+}
+.product__cart:hover {
+  background-color: black;
+  color: white;
 }/*# sourceMappingURL=style.css.map */

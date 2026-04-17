@@ -42,6 +42,16 @@ section {
   width: 100%;
   display: flex;
   flex-direction: column;
+  @media (max-width: 767.98px) {
+    min-height: 100vh;
+    width: 100%;
+  }
+}
+@media (max-width: 425px) {
+  body {
+    padding: 0;
+    line-height: 1;
+  }
 }
 .sign_in {
   display: flex;
@@ -56,6 +66,11 @@ input {
   height: 40px;
   padding: 10px 80px;
   margin-top: 40px;
+  @media (max-width: 767.98px) {
+    height: 20px;
+    padding: 5px 20px;
+    margin-top: 30px;
+  }
 }
 button {
   display: flex;
