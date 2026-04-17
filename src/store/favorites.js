@@ -1,6 +1,8 @@
-import { ref } from "vue";
+import { ref, watch } from "vue";
 
-const favorites = ref([]);
+const saved = localStorage.getItem("favorites");
+
+const favorites = ref(saved ? JSON.parse(saved) : []);
 
 export const useFavorites = () => {
   const addToFavorites = (product) => {
@@ -17,6 +19,15 @@ export const useFavorites = () => {
   const isFavorite = (id) => {
     return favorites.value.some((p) => p.id === id);
   };
+
+  // 💾 САМО СОХРАНЕНИЕ
+  watch(
+    favorites,
+    (newVal) => {
+      localStorage.setItem("favorites", JSON.stringify(newVal));
+    },
+    { deep: true },
+  );
 
   return {
     favorites,

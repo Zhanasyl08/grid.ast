@@ -1,5 +1,8 @@
 <script setup lang="ts">
 import { onActivated } from "vue";
+import { useFavorites } from "@/store/favorites";
+
+const { favorites } = useFavorites();
 </script>
 
 <template>
@@ -40,7 +43,11 @@ import { onActivated } from "vue";
         <input class="header__search" type="text" placeholder="Search" />
       </div>
       <div class="header__user">
-        <a class="header__loved" href="#">
+        <router-link
+          to="/favorites"
+          class="header__loved"
+          style="position: relative"
+        >
           <svg
             width="24"
             height="25"
@@ -56,7 +63,22 @@ import { onActivated } from "vue";
               stroke-linejoin="round"
             />
           </svg>
-        </a>
+          <span
+            v-if="favorites.length"
+            style="
+              position: absolute;
+              top: -5px;
+              right: -10px;
+              background: red;
+              color: white;
+              border-radius: 50%;
+              padding: 2px 6px;
+              font-size: 12px;
+            "
+          >
+            {{ favorites.length }}
+          </span>
+        </router-link>
         <a class="header__cart" href="#">
           <svg
             width="24"

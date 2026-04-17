@@ -544,8 +544,7 @@ a {
 
 .catalog {
   margin: 50px 0;
-  ._container {
-  }
+
   .catalog_blocks {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -835,6 +834,63 @@ section.sign {
         font-size: 14px;
         padding: 7px;
       }
+    }
+  }
+}
+.fav {
+  &_block {
+    display: flex;
+    gap: 40px;
+    padding-top: 40px;
+    h3 {
+      font-family: "montserrat";
+      font-size: 20px;
+      font-weight: 500;
+      @media (max-width: $md3) {
+        font-size: 14px;
+      }
+    }
+    p {
+      font-family: "Montserrat";
+      font-size: 18px;
+      font-weight: 300;
+      @media (max-width: $md3) {
+        font-size: 12px;
+      }
+    }
+    h4 {
+      font-family: "Montserrat";
+      font-size: 13px;
+      font-weight: 400;
+      @media (max-width: $md3) {
+        font-size: 8px;
+        font-weight: 300;
+      }
+    }
+  }
+  &__cart {
+    margin-bottom: 60px;
+    margin-top: 40px;
+  }
+}
+.fav__image {
+  img {
+    height: 100%;
+    max-width: 150px;
+    border: 1px solid black;
+    @media (max-width: $md3) {
+      height: auto;
+      max-width: 100px;
+    }
+  }
+}
+.fav__title {
+  padding-top: 50px;
+  h2 {
+    font-family: "Montserrat";
+    font-size: 40px;
+    @media (max-width: $md3) {
+      font-size: 24px;
     }
   }
 }

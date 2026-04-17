@@ -821,4 +821,70 @@ section.sign_in__log input[type=password] {
     font-size: 14px;
     padding: 7px;
   }
+}
+
+.fav_block {
+  display: flex;
+  gap: 40px;
+  padding-top: 40px;
+}
+.fav_block h3 {
+  font-family: "montserrat";
+  font-size: 20px;
+  font-weight: 500;
+}
+@media (max-width: 767.98px) {
+  .fav_block h3 {
+    font-size: 14px;
+  }
+}
+.fav_block p {
+  font-family: "Montserrat";
+  font-size: 18px;
+  font-weight: 300;
+}
+@media (max-width: 767.98px) {
+  .fav_block p {
+    font-size: 12px;
+  }
+}
+.fav_block h4 {
+  font-family: "Montserrat";
+  font-size: 13px;
+  font-weight: 400;
+}
+@media (max-width: 767.98px) {
+  .fav_block h4 {
+    font-size: 8px;
+    font-weight: 300;
+  }
+}
+.fav__cart {
+  margin-bottom: 60px;
+  margin-top: 40px;
+}
+
+.fav__image img {
+  height: 100%;
+  max-width: 150px;
+  border: 1px solid black;
+}
+@media (max-width: 767.98px) {
+  .fav__image img {
+    height: auto;
+    max-width: 100px;
+  }
+}
+
+.fav__title {
+  padding-top: 50px;
+}
+.fav__title h2 {
+  font-family: "Montserrat";
+  font-size: 40px;
+}
+@media (max-width: 767.98px) {
+  .fav__title h2 {
+    font-size: 24px;
+  }
 }/*# sourceMappingURL=style.css.map */

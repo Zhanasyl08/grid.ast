@@ -2,7 +2,9 @@
   <section class="page">
     <div class="_container">
       <div class="product">
-        <img src="@/assets/img/whiteshirt.jpeg" alt="" />
+        <div>
+          <img src="@/assets/img/whiteshirt.jpeg" alt="" />{{ product.image }}
+        </div>
         <div class="product__desc">
           <h1 class="product__name">{{ product.name }}</h1>
           <h2 class="product__price">{{ product.price }}₸</h2>
