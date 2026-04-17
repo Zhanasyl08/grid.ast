@@ -12,6 +12,9 @@
       />
 
       <button class="sign_in__items" @click="handleLogin">Войти</button>
+      <p v-if="error" style="color: red; margin-top: 10px">
+        {{ error }}
+      </p>
     </div>
   </section>
 </template>
@@ -24,14 +27,22 @@ import { useRouter } from "vue-router";
 
 const username = ref("");
 const password = ref("");
+const error = ref("");
+
 const router = useRouter();
 
 const handleLogin = async () => {
-  const data = await login(username.value, password.value);
+  try {
+    error.value = "";
 
-  authStore.setAuth(data);
+    const data = await login(username.value, password.value);
 
-  router.push("/"); // редирект на главную
+    authStore.setAuth(data);
+
+    router.push("/");
+  } catch (e) {
+    error.value = "Неверный логин или пароль";
+  }
 };
 </script>
 
@@ -100,7 +111,7 @@ h2 {
 }
 .sign_in__items {
   display: block;
-  width: 100%; /* или конкретная ширина */
+  width: 100%;
   max-width: 300px;
   margin-left: auto;
   margin-right: auto;

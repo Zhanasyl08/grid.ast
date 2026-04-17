@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import { useFavorites } from "@/store/favorites";
-import { useSearch } from "@/store/search";
 
 const { favorites } = useFavorites();
+
+const isMenuOpen = ref(false);
 
 // props
 defineProps([
@@ -36,7 +37,17 @@ const emit = defineEmits([
         <router-link to="/" class="header__link">Главная</router-link>
         <router-link to="/contact" class="header__link">Контакты</router-link>
       </div>
-
+      <div class="header__burger" @click="isMenuOpen = !isMenuOpen">☰</div>
+      <div v-if="isMenuOpen" class="mobile-menu">
+        <router-link @click="isMenuOpen = false" to="/about">О нас</router-link>
+        <router-link @click="isMenuOpen = false" to="/adress"
+          >Адреса</router-link
+        >
+        <router-link @click="isMenuOpen = false" to="/">Главная</router-link>
+        <router-link @click="isMenuOpen = false" to="/contact"
+          >Контакты</router-link
+        >
+      </div>
       <div class="header__user">
         <router-link
           to="/favorites"

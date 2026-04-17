@@ -2,21 +2,18 @@ import { reactive } from "vue";
 
 export const authStore = reactive({
   user: null,
-  accessToken: null,
-  refreshToken: null,
+  accessToken: localStorage.getItem("token") || null,
 
   setAuth(data) {
+    this.accessToken = data.token;
     this.user = data;
-    this.accessToken = data.accessToken;
-    this.refreshToken = data.refreshToken;
 
-    localStorage.setItem("token", this.accessToken);
+    localStorage.setItem("token", data.token);
   },
 
   logout() {
-    this.user = null;
     this.accessToken = null;
-    this.refreshToken = null;
+    this.user = null;
 
     localStorage.removeItem("token");
   },

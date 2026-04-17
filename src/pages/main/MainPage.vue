@@ -51,7 +51,6 @@
               <button @click="isFilterOpen = false">✕</button>
             </div>
 
-            <!-- SEARCH -->
             <input
               v-model="tempQuery"
               class="filter-input"
@@ -59,7 +58,6 @@
               @keyup.enter="applyFilters"
             />
 
-            <!-- CATEGORY -->
             <div class="filter-section">
               <h3>Категории</h3>
 
@@ -82,7 +80,6 @@
               </button>
             </div>
 
-            <!-- PRICE -->
             <div class="filter-section">
               <h3>Цена</h3>
 
@@ -170,33 +167,27 @@ import { authStore } from "@/store/auth";
 const allProducts = ref([]);
 const categories = ref([]);
 
-// POPUP
 const isFilterOpen = ref(false);
 
-// ОСНОВНЫЕ ФИЛЬТРЫ
 const query = ref("");
 const selectedCategory = ref("all");
 const minPrice = ref(0);
 const maxPrice = ref(100000);
 
-// ВРЕМЕННЫЕ (для попапа)
 const tempQuery = ref("");
 const tempCategory = ref("all");
 const tempMin = ref(0);
 const tempMax = ref(100000);
 
-// PAGINATION
 const currentPage = ref(1);
 const perPage = 12;
 
-// PRODUCTS
 const loadProducts = async () => {
   const res = await fetch("https://dummyjson.com/products?limit=100");
   const data = await res.json();
   allProducts.value = data.products;
 };
 
-// CATEGORIES
 const loadCategories = async () => {
   const res = await fetch("https://dummyjson.com/products/category-list");
   const data = await res.json();
@@ -207,7 +198,6 @@ const loadCategories = async () => {
   }));
 };
 
-// ФИЛЬТР
 const filteredProducts = computed(() => {
   return allProducts.value.filter((p) => {
     const matchesSearch = p.title
@@ -223,13 +213,11 @@ const filteredProducts = computed(() => {
   });
 });
 
-// PAGINATION
 const paginatedProducts = computed(() => {
   const start = (currentPage.value - 1) * perPage;
   return filteredProducts.value.slice(start, start + perPage);
 });
 
-// APPLY
 const applyFilters = () => {
   query.value = tempQuery.value;
   selectedCategory.value = tempCategory.value;
@@ -240,7 +228,6 @@ const applyFilters = () => {
   isFilterOpen.value = false;
 };
 
-// PAGINATION BUTTONS
 const nextPage = () => {
   if (currentPage.value * perPage < filteredProducts.value.length) {
     currentPage.value++;
