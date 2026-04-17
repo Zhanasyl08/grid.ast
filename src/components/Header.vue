@@ -1,8 +1,27 @@
 <script setup lang="ts">
-import { onActivated } from "vue";
+import { ref } from "vue";
 import { useFavorites } from "@/store/favorites";
+import { useSearch } from "@/store/search";
 
 const { favorites } = useFavorites();
+
+// props
+defineProps([
+  "categories",
+  "query",
+  "selectedCategory",
+  "minPrice",
+  "maxPrice",
+]);
+
+// ✅ ОДИН defineEmits
+const emit = defineEmits([
+  "update:query",
+  "update:selectedCategory",
+  "update:minPrice",
+  "update:maxPrice",
+  "close",
+]);
 </script>
 
 <template>
@@ -17,31 +36,7 @@ const { favorites } = useFavorites();
         <router-link to="/" class="header__link">Главная</router-link>
         <router-link to="/contact" class="header__link">Контакты</router-link>
       </div>
-      <div class="header__search-container">
-        <svg
-          width="24"
-          height="25"
-          viewBox="0 0 24 25"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M11 19.5C15.4183 19.5 19 15.9183 19 11.5C19 7.08172 15.4183 3.5 11 3.5C6.58172 3.5 3 7.08172 3 11.5C3 15.9183 6.58172 19.5 11 19.5Z"
-            stroke="black"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          />
-          <path
-            d="M21 21.5L16.65 17.15"
-            stroke="black"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          />
-        </svg>
-        <input class="header__search" type="text" placeholder="Search" />
-      </div>
+
       <div class="header__user">
         <router-link
           to="/favorites"
@@ -79,7 +74,7 @@ const { favorites } = useFavorites();
             {{ favorites.length }}
           </span>
         </router-link>
-        <a class="header__cart" href="#">
+        <router-link class="header__cart" to="/cart">
           <svg
             width="24"
             height="25"
@@ -102,7 +97,7 @@ const { favorites } = useFavorites();
               stroke-linejoin="round"
             />
           </svg>
-        </a>
+        </router-link>
         <div class="header__log">
           <router-link @click="" to="/login"
             ><button>Профиль</button></router-link

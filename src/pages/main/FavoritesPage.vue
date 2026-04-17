@@ -5,7 +5,7 @@
     <div v-if="favorites.length" class="fav">
       <div v-for="item in favorites" :key="item.id" class="fav_block">
         <div class="fav__image">
-          <img src="@/assets/img/whiteshirt.jpeg" alt="" />{{ item.image }}
+          <img :src="item.thumbnail" />
         </div>
         <div class="fav__text">
           <h3>{{ item.name }}</h3>
@@ -13,10 +13,15 @@
           <h4>{{ item.subdesc }}</h4>
         </div>
         <button class="fav__delete" @click="removeFromFavorites(item.id)">
-          Х Удалить
+          х Удалить
         </button>
       </div>
-      <button class="product__cart fav__cart">Добавить в корзину</button>
+      <button
+        class="product__cart"
+        @click="addToCart(product, selectedSize, quantity)"
+      >
+        Добавить в корзину ({{ quantity }} шт, {{ selectedSize }})
+      </button>
     </div>
 
     <p v-else>Пусто</p>

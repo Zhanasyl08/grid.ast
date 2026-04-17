@@ -36,6 +36,7 @@ const routes = [
         name: "Catalog",
         component: () => import("../pages/main/MainPage.vue"),
       },
+
       {
         path: "/product/:id",
         name: "Product",
@@ -45,6 +46,10 @@ const routes = [
         path: "/favorites",
         name: "Favorites",
         component: () => import("../pages/main/FavoritesPage.vue"),
+      },
+      {
+        path: "/cart",
+        component: () => import("@/pages/main/CartPage.vue"),
       },
     ],
   },

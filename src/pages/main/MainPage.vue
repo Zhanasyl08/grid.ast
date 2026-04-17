@@ -3,7 +3,7 @@
     <div class="_container">
       <div class="main">
         <div class="filters">
-          <button class="filters__btn">
+          <button class="filters__btn" @click="isFilterOpen = true">
             <span class="hide"></span>&nbsp;Filters
             <svg
               width="24"
@@ -40,10 +40,56 @@
             </svg>
           </button>
         </div>
-        <div id="popup" class="popup">
-          <div class="popup-content">
-            <span id="closeBtn">&times;</span>
-            <p>Это всплывающее окно!</p>
+        <div
+          v-if="isFilterOpen"
+          class="filter-overlay"
+          @click.self="isFilterOpen = false"
+        >
+          <div class="filter-popup">
+            <div class="filter-header">
+              <h2>Фильтры</h2>
+              <button @click="isFilterOpen = false">✕</button>
+            </div>
+
+            <!-- SEARCH -->
+            <input
+              v-model="tempQuery"
+              class="filter-input"
+              placeholder="Поиск..."
+              @keyup.enter="applyFilters"
+            />
+
+            <!-- CATEGORY -->
+            <div class="filter-section">
+              <h3>Категории</h3>
+
+              <button
+                class="filter-chip"
+                :class="{ active: tempCategory === 'all' }"
+                @click="tempCategory = 'all'"
+              >
+                Все
+              </button>
+
+              <button
+                v-for="cat in categories"
+                :key="cat.slug"
+                class="filter-chip"
+                :class="{ active: tempCategory === cat.slug }"
+                @click="tempCategory = cat.slug"
+              >
+                {{ cat.name }}
+              </button>
+            </div>
+
+            <!-- PRICE -->
+            <div class="filter-section">
+              <h3>Цена</h3>
+
+              <input v-model.number="tempMin" placeholder="Мин" />
+              <input v-model.number="tempMax" placeholder="Макс" />
+              <button class="apply-btn" @click="applyFilters">Найти</button>
+            </div>
           </div>
         </div>
       </div>
@@ -101,8 +147,8 @@
           :key="product.id"
         >
           <router-link :to="`/product/${product.id}`">
-            <img src="@/assets/img/whiteshirt.jpeg" alt="" />
-            <h3>{{ product.name }}</h3>
+            <img :src="product.thumbnail" />
+            <h3>{{ product.title }}</h3>
             <h4>{{ product.price }}₸</h4>
           </router-link>
         </div>
@@ -121,192 +167,82 @@ import { onMounted, ref, computed } from "vue";
 import { getMe } from "@/api/auth";
 import { authStore } from "@/store/auth";
 
-const allProducts = ref([
-  {
-    id: 1,
-    name: "Футболка",
-    price: 7777,
-    image: "@/assets/img/whiteshirt.jpeg",
-  },
-  {
-    id: 2,
-    name: "Футболка",
-    price: 7777,
-    image: "@/assets/img/whiteshirt.jpeg",
-  },
-  {
-    id: 3,
-    name: "Футболка",
-    price: 7777,
-    image: "@/assets/img/whiteshirt.jpeg",
-  },
-  {
-    id: 4,
-    name: "Футболка",
-    price: 7777,
-    image: "@/assets/img/whiteshirt.jpeg",
-  },
-  {
-    id: 5,
-    name: "Футболка",
-    price: 7777,
-    image: "@/assets/img/whiteshirt.jpeg",
-  },
-  {
-    id: 6,
-    name: "Футболка",
-    price: 7777,
-    image: "@/assets/img/whiteshirt.jpeg",
-  },
-  {
-    id: 7,
-    name: "Футболка",
-    price: 7777,
-    image: "@/assets/img/whiteshirt.jpeg",
-  },
-  {
-    id: 8,
-    name: "Футболка",
-    price: 7777,
-    image: "@/assets/img/whiteshirt.jpeg",
-  },
-  {
-    id: 9,
-    name: "Футболка",
-    price: 7777,
-    image: "@/assets/img/whiteshirt.jpeg",
-  },
-  {
-    id: 10,
-    name: "Футболка",
-    price: 7777,
-    image: "@/assets/img/whiteshirt.jpeg",
-  },
-  {
-    id: 11,
-    name: "Футболка",
-    price: 7777,
-    image: "@/assets/img/whiteshirt.jpeg",
-  },
-  {
-    id: 12,
-    name: "Футболка",
-    price: 7777,
-    image: "@/assets/img/whiteshirt.jpeg",
-  },
-  {
-    id: 13,
-    name: "Кроссовки",
-    price: 7777,
-    image: "@/assets/img/whiteshirt.jpeg",
-  },
-  {
-    id: 14,
-    name: "Кроссовки",
-    price: 7777,
-    image: "@/assets/img/whiteshirt.jpeg",
-  },
-  {
-    id: 15,
-    name: "Кроссовки",
-    price: 7777,
-    image: "@/assets/img/whiteshirt.jpeg",
-  },
-  {
-    id: 16,
-    name: "Кроссовки",
-    price: 7777,
-    image: "@/assets/img/whiteshirt.jpeg",
-  },
-  {
-    id: 17,
-    name: "Кроссовки",
-    price: 7777,
-    image: "@/assets/img/whiteshirt.jpeg",
-  },
-  {
-    id: 18,
-    name: "Кроссовки",
-    price: 7777,
-    image: "@/assets/img/whiteshirt.jpeg",
-  },
-  {
-    id: 19,
-    name: "Кроссовки",
-    price: 7777,
-    image: "@/assets/img/whiteshirt.jpeg",
-  },
-  {
-    id: 20,
-    name: "Кроссовки",
-    price: 7777,
-    image: "@/assets/img/whiteshirt.jpeg",
-  },
-  {
-    id: 21,
-    name: "Кроссовки",
-    price: 7777,
-    image: "@/assets/img/whiteshirt.jpeg",
-  },
-  {
-    id: 22,
-    name: "Кроссовки",
-    price: 7777,
-    image: "@/assets/img/whiteshirt.jpeg",
-  },
-  {
-    id: 23,
-    name: "Кроссовки",
-    price: 7777,
-    image: "@/assets/img/whiteshirt.jpeg",
-  },
-  {
-    id: 24,
-    name: "Кроссовки",
-    price: 7777,
-    image: "@/assets/img/whiteshirt.jpeg",
-  },
-  {
-    id: 25,
-    name: "Штаны ",
-    price: 7777,
-    image: "@/assets/img/whiteshirt.jpeg",
-  },
-  { id: 26, name: "Штаны", price: 7777, image: "@/assets/img/whiteshirt.jpeg" },
-  { id: 27, name: "Штаны", price: 7777, image: "@/assets/img/whiteshirt.jpeg" },
-  { id: 28, name: "Штаны", price: 7777, image: "@/assets/img/whiteshirt.jpeg" },
-  { id: 29, name: "Штаны", price: 7777, image: "@/assets/img/whiteshirt.jpeg" },
-  { id: 30, name: "Штаны", price: 7777, image: "@/assets/img/whiteshirt.jpeg" },
-  { id: 31, name: "Штаны", price: 7777, image: "@/assets/img/whiteshirt.jpeg" },
+const allProducts = ref([]);
+const categories = ref([]);
 
-  { id: 32, name: "Штаны", price: 7777, image: "@/assets/img/whiteshirt.jpeg" },
-  { id: 34, name: "Штаны", price: 7777, image: "@/assets/img/whiteshirt.jpeg" },
-  { id: 35, name: "Штаны", price: 7777, image: "@/assets/img/whiteshirt.jpeg" },
-  { id: 36, name: "Штаны", price: 7777, image: "@/assets/img/whiteshirt.jpeg" },
-  { id: 37, name: "Штаны", price: 7777, image: "@/assets/img/whiteshirt.jpeg" },
-  { id: 38, name: "Штаны", price: 7777, image: "@/assets/img/whiteshirt.jpeg" },
-  { id: 39, name: "Штаны", price: 7777, image: "@/assets/img/whiteshirt.jpeg" },
-  { id: 40, name: "Штаны", price: 7777, image: "@/assets/img/whiteshirt.jpeg" },
-  { id: 41, name: "Штаны", price: 7777, image: "@/assets/img/whiteshirt.jpeg" },
-  { id: 42, name: "Штаны", price: 7777, image: "@/assets/img/whiteshirt.jpeg" },
-  { id: 43, name: "Штаны", price: 7777, image: "@/assets/img/whiteshirt.jpeg" },
-  { id: 44, name: "Штаны", price: 7777, image: "@/assets/img/whiteshirt.jpeg" },
-  { id: 45, name: "Штаны", price: 7777, image: "@/assets/img/whiteshirt.jpeg" },
-  { id: 46, name: "Штаны", price: 7777, image: "@/assets/img/whiteshirt.jpeg" },
-  { id: 47, name: "Штаны", price: 7777, image: "@/assets/img/whiteshirt.jpeg" },
-  { id: 48, name: "Штаны", price: 7777, image: "@/assets/img/whiteshirt.jpeg" },
-]);
+// POPUP
+const isFilterOpen = ref(false);
 
+// ОСНОВНЫЕ ФИЛЬТРЫ
+const query = ref("");
+const selectedCategory = ref("all");
+const minPrice = ref(0);
+const maxPrice = ref(100000);
+
+// ВРЕМЕННЫЕ (для попапа)
+const tempQuery = ref("");
+const tempCategory = ref("all");
+const tempMin = ref(0);
+const tempMax = ref(100000);
+
+// PAGINATION
 const currentPage = ref(1);
 const perPage = 12;
 
-const paginatedProducts = computed(() => {
-  const start = (currentPage.value - 1) * perPage;
-  return allProducts.value.slice(start, start + perPage);
+// PRODUCTS
+const loadProducts = async () => {
+  const res = await fetch("https://dummyjson.com/products?limit=100");
+  const data = await res.json();
+  allProducts.value = data.products;
+};
+
+// CATEGORIES
+const loadCategories = async () => {
+  const res = await fetch("https://dummyjson.com/products/category-list");
+  const data = await res.json();
+
+  categories.value = data.map((cat) => ({
+    slug: cat,
+    name: cat,
+  }));
+};
+
+// ФИЛЬТР
+const filteredProducts = computed(() => {
+  return allProducts.value.filter((p) => {
+    const matchesSearch = p.title
+      .toLowerCase()
+      .includes(query.value.toLowerCase());
+
+    const matchesCategory =
+      selectedCategory.value === "all" || p.category === selectedCategory.value;
+
+    const matchesPrice = p.price >= minPrice.value && p.price <= maxPrice.value;
+
+    return matchesSearch && matchesCategory && matchesPrice;
+  });
 });
 
+// PAGINATION
+const paginatedProducts = computed(() => {
+  const start = (currentPage.value - 1) * perPage;
+  return filteredProducts.value.slice(start, start + perPage);
+});
+
+// APPLY
+const applyFilters = () => {
+  query.value = tempQuery.value;
+  selectedCategory.value = tempCategory.value;
+  minPrice.value = tempMin.value;
+  maxPrice.value = tempMax.value;
+
+  currentPage.value = 1;
+  isFilterOpen.value = false;
+};
+
+// PAGINATION BUTTONS
 const nextPage = () => {
-  if (currentPage.value * perPage < allProducts.value.length) {
+  if (currentPage.value * perPage < filteredProducts.value.length) {
     currentPage.value++;
   }
 };
@@ -318,13 +254,9 @@ const prevPage = () => {
 };
 
 onMounted(async () => {
-  if (authStore.accessToken) {
-    const user = await getMe(authStore.accessToken);
-    authStore.user = user;
-  }
-});
+  await loadProducts();
+  await loadCategories();
 
-onMounted(async () => {
   if (authStore.accessToken) {
     const user = await getMe(authStore.accessToken);
     authStore.user = user;

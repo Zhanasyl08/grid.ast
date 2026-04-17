@@ -750,7 +750,7 @@ section.sign_in__log input[type=password] {
   font-family: "Montserrat";
 }
 .product_nav {
-  margin: 20px 0px;
+  margin: 20px 70px;
   background-color: transparent;
   font-family: "Montserrat";
   padding: 15px;
@@ -759,6 +759,16 @@ section.sign_in__log input[type=password] {
 .product_nav:hover {
   background-color: black;
   color: white;
+}
+@media (max-width: 991.98px) {
+  .product_nav {
+    margin: 20px 40px;
+  }
+}
+@media (max-width: 767.98px) {
+  .product_nav {
+    margin: 20px 10px;
+  }
 }
 .product button {
   background-color: transparent;
@@ -905,4 +915,77 @@ section.sign_in__log input[type=password] {
   .fav__title h2 {
     font-size: 24px;
   }
+}
+
+.filter-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.filter-popup {
+  background: white;
+  padding: 25px;
+  border-radius: 16px;
+  width: 350px;
+  animation: fadeIn 0.2s ease;
+}
+
+.filter-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.filter-input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+.filter-section {
+  margin-top: 15px;
+}
+
+.filter-chip {
+  margin: 5px;
+  padding: 6px 12px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+
+.filter-chip.active {
+  background: black;
+  color: white;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.apply-btn {
+  margin-top: 15px;
+  padding: 12px;
+  border-radius: 10px;
+  background: black;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
 }/*# sourceMappingURL=style.css.map */
