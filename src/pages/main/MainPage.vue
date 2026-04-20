@@ -140,7 +140,7 @@
       <div class="catalog_blocks">
         <div
           class="catalog_block"
-          v-for="product in paginatedProducts"
+          v-for="product in allProducts"
           :key="product.id"
         >
           <router-link :to="`/product/${product.id}`">
@@ -160,9 +160,9 @@
   </div>
 </template>
 <script setup>
-import { onMounted, ref, computed } from "vue";
-import { getMe } from "@/api/auth";
+import { onMounted, ref } from "vue";
 import { authStore } from "@/store/auth";
+import { getMe } from "@/api/auth";
 
 const allProducts = ref([]);
 const categories = ref([]);
@@ -171,23 +171,36 @@ const isFilterOpen = ref(false);
 
 const query = ref("");
 const selectedCategory = ref("all");
-const minPrice = ref(0);
-const maxPrice = ref(100000);
 
 const tempQuery = ref("");
 const tempCategory = ref("all");
-const tempMin = ref(0);
-const tempMax = ref(100000);
 
 const currentPage = ref(1);
 const perPage = 12;
+const total = ref(0);
 
+// 🔥 загрузка товаров
 const loadProducts = async () => {
-  const res = await fetch("https://dummyjson.com/products?limit=100");
+  const skip = (currentPage.value - 1) * perPage;
+
+  let url = "";
+
+  if (query.value.trim()) {
+    url = `https://dummyjson.com/products/search?q=${query.value}&limit=${perPage}&skip=${skip}`;
+  } else if (selectedCategory.value !== "all") {
+    url = `https://dummyjson.com/products/category/${selectedCategory.value}?limit=${perPage}&skip=${skip}`;
+  } else {
+    url = `https://dummyjson.com/products?limit=${perPage}&skip=${skip}`;
+  }
+
+  const res = await fetch(url);
   const data = await res.json();
+
   allProducts.value = data.products;
+  total.value = data.total;
 };
 
+// 🔥 категории
 const loadCategories = async () => {
   const res = await fetch("https://dummyjson.com/products/category-list");
   const data = await res.json();
@@ -198,55 +211,44 @@ const loadCategories = async () => {
   }));
 };
 
-const filteredProducts = computed(() => {
-  return allProducts.value.filter((p) => {
-    const matchesSearch = p.title
-      .toLowerCase()
-      .includes(query.value.toLowerCase());
+// 🔥 пагинация
+const nextPage = async () => {
+  if (currentPage.value * perPage < total.value) {
+    currentPage.value++;
+    await loadProducts();
+  }
+};
 
-    const matchesCategory =
-      selectedCategory.value === "all" || p.category === selectedCategory.value;
+const prevPage = async () => {
+  if (currentPage.value > 1) {
+    currentPage.value--;
+    await loadProducts();
+  }
+};
 
-    const matchesPrice = p.price >= minPrice.value && p.price <= maxPrice.value;
-
-    return matchesSearch && matchesCategory && matchesPrice;
-  });
-});
-
-const paginatedProducts = computed(() => {
-  const start = (currentPage.value - 1) * perPage;
-  return filteredProducts.value.slice(start, start + perPage);
-});
-
-const applyFilters = () => {
+// 🔥 фильтры
+const applyFilters = async () => {
   query.value = tempQuery.value;
   selectedCategory.value = tempCategory.value;
-  minPrice.value = tempMin.value;
-  maxPrice.value = tempMax.value;
 
   currentPage.value = 1;
   isFilterOpen.value = false;
+
+  await loadProducts();
 };
 
-const nextPage = () => {
-  if (currentPage.value * perPage < filteredProducts.value.length) {
-    currentPage.value++;
-  }
-};
-
-const prevPage = () => {
-  if (currentPage.value > 1) {
-    currentPage.value--;
-  }
-};
-
+// 🔥 один нормальный onMounted
 onMounted(async () => {
   await loadProducts();
   await loadCategories();
 
-  if (authStore.accessToken) {
-    const user = await getMe(authStore.accessToken);
-    authStore.user = user;
-  }
+  // if (authStore.accessToken) {
+  //   try {
+  //     const user = await getMe(authStore.accessToken);
+  //     authStore.user = user;
+  //   } catch (e) {
+  //     authStore.logout();
+  //   }
+  // }
 });
 </script>
