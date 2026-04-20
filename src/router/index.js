@@ -1,66 +1,54 @@
 import { createRouter, createWebHistory } from "vue-router";
-
-import MainLayout from "@/layouts/MainLayout.vue";
-import DefaultLayout from "@/layouts/DefaultLayout.vue";
-
-import Home from "../pages/main/MainPage.vue";
-import About from "../pages/main/AboutPage.vue";
-import Adress from "../pages/main/AdressPage.vue";
-import Contact from "../pages/main/ContactPage.vue";
-import Login from "../pages/auth/LoginPage.vue";
+import { authStore } from "@/store/auth";
 
 const routes = [
   {
     path: "/",
-    component: MainLayout,
+    component: () => import("@/layouts/MainLayout.vue"),
     children: [
       {
         path: "",
-        component: Home,
+        component: () => import("@/pages/main/MainPage.vue"),
+        meta: { requiresAuth: true },
       },
       {
         path: "about",
-        component: About,
+        component: () => import("@/pages/main/AboutPage.vue"),
       },
       {
         path: "adress",
-        component: Adress,
+        component: () => import("@/pages/main/AdressPage.vue"),
       },
       {
         path: "contact",
-        component: Contact,
-      },
-      // router/index.js
-      {
-        path: "/catalog/:page",
-        name: "Catalog",
-        component: () => import("../pages/main/MainPage.vue"),
-      },
-
-      {
-        path: "/product/:id",
-        name: "Product",
-        component: () => import("../pages/main/ProductPage.vue"),
+        component: () => import("@/pages/main/ContactPage.vue"),
       },
       {
-        path: "/favorites",
-        name: "Favorites",
-        component: () => import("../pages/main/FavoritesPage.vue"),
+        path: "catalog/:page",
+        component: () => import("@/pages/main/MainPage.vue"),
       },
       {
-        path: "/cart",
+        path: "product/:id",
+        component: () => import("@/pages/main/ProductPage.vue"),
+      },
+      {
+        path: "favorites",
+        component: () => import("@/pages/main/FavoritesPage.vue"),
+      },
+      {
+        path: "cart",
         component: () => import("@/pages/main/CartPage.vue"),
       },
     ],
   },
 
   {
-    path: "/",
-    component: DefaultLayout,
+    path: "/login",
+    component: () => import("@/layouts/DefaultLayout.vue"),
     children: [
       {
-        path: "/login",
-        component: Login,
+        path: "",
+        component: () => import("@/pages/auth/LoginPage.vue"),
       },
     ],
   },
@@ -72,15 +60,17 @@ const router = createRouter({
 });
 
 router.beforeEach((to, from, next) => {
-  const token = localStorage.getItem("token");
+  const token = authStore.accessToken; // ✅ ВАЖНО
 
-  if (!token && to.path !== "/login") {
-    next("/login");
-  } else if (token && to.path === "/login") {
-    next("/");
-  } else {
-    next();
+  if (to.meta.requiresAuth && !token) {
+    return next("/login");
   }
+
+  if (to.path === "/login" && token) {
+    return next("/");
+  }
+
+  next();
 });
 
 export default router;

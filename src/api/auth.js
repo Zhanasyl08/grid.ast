@@ -7,7 +7,6 @@ export const login = async (username, password) => {
       password,
       expiresInMins: 30,
     }),
-    credentials: "include",
   });
 
   if (!res.ok) throw new Error("login error");
@@ -21,10 +20,9 @@ export const getMe = async (token) => {
     headers: {
       Authorization: `Bearer ${token}`,
     },
-    credentials: "include",
   });
 
-  if (!res.ok) throw new Error("not authorized");
+  if (!res.ok) throw new Error("Не авторизован");
 
   return await res.json();
 };

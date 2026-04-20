@@ -11,7 +11,9 @@
         class="sign_in__items"
       />
 
-      <button class="sign_in__items" @click="handleLogin">Войти</button>
+      <<button type="button" class="sign_in__items" @click="handleLogin">
+        Войти
+      </button>
       <p v-if="error" style="color: red; margin-top: 10px">
         {{ error }}
       </p>
@@ -21,7 +23,7 @@
 
 <script setup>
 import { ref } from "vue";
-import { login } from "@/api/auth";
+import { login, getMe } from "@/api/auth";
 import { authStore } from "@/store/auth";
 import { useRouter } from "vue-router";
 
@@ -39,8 +41,12 @@ const handleLogin = async () => {
 
     authStore.setAuth(data);
 
-    router.push("/");
+    const user = await getMe(data.accessToken);
+    authStore.setUser(user);
+
+    await router.push("/");
   } catch (e) {
+    console.log("LOGIN ERROR:", e);
     error.value = "Неверный логин или пароль";
   }
 };

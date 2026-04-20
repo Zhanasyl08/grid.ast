@@ -179,7 +179,6 @@ const currentPage = ref(1);
 const perPage = 12;
 const total = ref(0);
 
-// 🔥 загрузка товаров
 const loadProducts = async () => {
   const skip = (currentPage.value - 1) * perPage;
 
@@ -200,7 +199,6 @@ const loadProducts = async () => {
   total.value = data.total;
 };
 
-// 🔥 категории
 const loadCategories = async () => {
   const res = await fetch("https://dummyjson.com/products/category-list");
   const data = await res.json();
@@ -211,7 +209,6 @@ const loadCategories = async () => {
   }));
 };
 
-// 🔥 пагинация
 const nextPage = async () => {
   if (currentPage.value * perPage < total.value) {
     currentPage.value++;
@@ -226,7 +223,6 @@ const prevPage = async () => {
   }
 };
 
-// 🔥 фильтры
 const applyFilters = async () => {
   query.value = tempQuery.value;
   selectedCategory.value = tempCategory.value;
@@ -237,18 +233,17 @@ const applyFilters = async () => {
   await loadProducts();
 };
 
-// 🔥 один нормальный onMounted
 onMounted(async () => {
   await loadProducts();
   await loadCategories();
 
-  // if (authStore.accessToken) {
-  //   try {
-  //     const user = await getMe(authStore.accessToken);
-  //     authStore.user = user;
-  //   } catch (e) {
-  //     authStore.logout();
-  //   }
-  // }
+  if (authStore.accessToken) {
+    try {
+      const user = await getMe(authStore.accessToken);
+      authStore.user = user;
+    } catch (e) {
+      authStore.logout();
+    }
+  }
 });
 </script>

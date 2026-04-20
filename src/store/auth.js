@@ -6,7 +6,6 @@ export const authStore = reactive({
   refreshToken: localStorage.getItem("refreshToken") || null,
 
   setAuth(data) {
-    this.user = data;
     this.accessToken = data.accessToken;
     this.refreshToken = data.refreshToken;
 
@@ -14,12 +13,19 @@ export const authStore = reactive({
     localStorage.setItem("refreshToken", data.refreshToken);
   },
 
+  setUser(user) {
+    this.user = user;
+  },
+
+  restoreUser(user) {
+    this.user = user;
+  },
+
   logout() {
     this.user = null;
     this.accessToken = null;
     this.refreshToken = null;
 
-    localStorage.removeItem("accessToken");
-    localStorage.removeItem("refreshToken");
+    localStorage.clear();
   },
 });
