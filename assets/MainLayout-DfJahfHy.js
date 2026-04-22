@@ -1,0 +1,1 @@
+import{_ as e,b as t,d as n,i as r,s as i}from"./runtime-core.esm-bundler-Cr-lk3Ju.js";import{n as a,t as o}from"./Footer-Dk5XRcC-.js";var s={class:`main`},c={__name:`MainLayout`,setup(c){return(c,l)=>{let u=t(`router-view`);return e(),i(`div`,null,[r(`div`,null,[n(a),r(`main`,s,[n(u)]),n(o)])])}}};export{c as default};
