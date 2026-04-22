@@ -6,11 +6,11 @@ const routes = [
     path: "/",
     component: () => import("@/layouts/MainLayout.vue"),
     children: [
-      {
-        path: "",
-        component: () => import("@/pages/main/MainPage.vue"),
-        meta: { requiresAuth: true },
-      },
+      // {
+      //   path: "",
+      //   component: () => import("@/pages/main/MainPage.vue"),
+      //   meta: { requiresAuth: true },
+      // },
       {
         path: "about",
         component: () => import("@/pages/main/AboutPage.vue"),
@@ -59,18 +59,18 @@ const router = createRouter({
   routes,
 });
 
-router.beforeEach((to, from, next) => {
-  const token = authStore.accessToken; // ✅ ВАЖНО
+// router.beforeEach((to, from, next) => {
+//   const token = authStore.accessToken; // ✅ ВАЖНО
 
-  if (to.meta.requiresAuth && !token) {
-    return next("/login");
-  }
+//   if (to.meta.requiresAuth && !token) {
+//     return next("/login");
+//   }
 
-  if (to.path === "/login" && token) {
-    return next("/");
-  }
+//   if (to.path === "/login" && token) {
+//     return next("/");
+//   }
 
-  next();
-});
+//   next();
+// });
 
 export default router;
