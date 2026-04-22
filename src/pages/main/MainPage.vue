@@ -55,7 +55,7 @@
               v-model="tempQuery"
               class="filter-input"
               placeholder="Поиск..."
-              @keyup.enter="applyFilters"
+              @input="onSearch"
             />
 
             <div class="filter-section">

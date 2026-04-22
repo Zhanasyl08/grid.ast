@@ -4,9 +4,10 @@ import path from "path";
 
 export default defineConfig({
   plugins: [vue()],
+  base: "/grid.ast/", // ВАЖНО для GitHub Pages
   resolve: {
     alias: {
-      "@": path.resolve(__dirname, "src"), // Теперь импорт руками: import x from '@/components/x.vue'
+      "@": path.resolve(__dirname, "src"),
     },
   },
 });

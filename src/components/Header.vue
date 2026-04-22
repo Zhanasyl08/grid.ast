@@ -6,7 +6,6 @@ const { favorites } = useFavorites();
 
 const isMenuOpen = ref(false);
 
-// props
 defineProps([
   "categories",
   "query",
@@ -15,7 +14,6 @@ defineProps([
   "maxPrice",
 ]);
 
-// ✅ ОДИН defineEmits
 const emit = defineEmits([
   "update:query",
   "update:selectedCategory",
